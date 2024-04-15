@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "build": "next build",
-    "db:push": "prisma db push",
+    "db:push": "npm run env -- -- prisma db push",
     "db:studio": "prisma studio",
     "dev": "next dev",
+    "env": "npx @dotenvx/dotenvx run -f .env.development.local",
     "postinstall": "prisma generate",
     "lint": "next lint",
     "start": "next start",
