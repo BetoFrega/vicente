@@ -24,7 +24,7 @@ export const env = createEnv({
       process.env.VERCEL ? z.string() : z.string().url(),
     ),
     SMTP_HOST: z.string(),
-    SMTP_PORT: z.number().int(),
+    SMTP_PORT: z.coerce.number().int(),
     SMTP_USER: z.string(),
     SMTP_PASS: z.string(),
     SMTP_FROM: z.string(),
@@ -50,10 +50,7 @@ export const env = createEnv({
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     SMTP_HOST: process.env.SMTP_HOST,
-    SMTP_PORT:
-      typeof process.env.SMTP_PORT === "string"
-        ? parseInt(process.env.SMTP_PORT)
-        : undefined,
+    SMTP_PORT: process.env.SMTP_PORT,
     SMTP_USER: process.env.SMTP_USER,
     SMTP_PASS: process.env.SMTP_PASS,
     SMTP_FROM: process.env.SMTP_FROM,
